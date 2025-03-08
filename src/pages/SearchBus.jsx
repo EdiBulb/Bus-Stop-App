@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import "./SearchBus.css"; // 스타일 추가
 
 function SearchBus() {
-  const [busNumber, setBusNumber] = useState(""); // 입력값 저장
+  const [busNumber, setBusNumber] = useState(""); // useState는 React의 상태관리 Hook임. setBusNumber는 busNumber 값 변경 함수
   const navigate = useNavigate(); // 페이지 이동 함수
 
   return (
