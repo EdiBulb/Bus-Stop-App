@@ -6,7 +6,7 @@ import "./SelectDestination.css";
 function SelectDestination() {
   const navigate = useNavigate();
   const location = useLocation();
-  const startStation = location.state?.startStation || "Unknown"; // 선택한 탑승 정류장 정보
+  const startStation = location.state?.startStation || "Unknown"; // selected bus stop information(선택한 탑승 정류장 정보)
 
   const [stations, setStations] = useState([]);
 
@@ -19,7 +19,7 @@ function SelectDestination() {
     setStations(data);
   };
 
-  // 🚏 하차 정류장 선택 시 다음 페이지로 이동
+  // once destination selected, move to next page(하차 정류장 선택 시 다음 페이지로 이동)
   const handleSelectDestination = (selectedStation) => {
     navigate("/map", { state: { startStation, destinationStation: selectedStation } });
   };
@@ -28,10 +28,10 @@ function SelectDestination() {
     <div className="container">
       <Header />
       <h2>Select Destination</h2>
-      <p className="info">You boarded at: <strong>{startStation}</strong></p> {/* 선택한 탑승 정류장 표시 */}
+      <p className="info">You boarded at: <strong>{startStation}</strong></p> {/*Selected bus stop appear, 선택한 탑승 정류장 표시 */}
       <ul className="station-list">
         {stations
-          .filter(station => station !== startStation) // 🚨 탑승 정류장은 제외
+          .filter(station => station !== startStation) // remove the bus stop where you board(탑승 정류장은 제외)
           .map((station, index) => (
             <li key={index} className="station-item" onClick={() => handleSelectDestination(station)}>
               {station}

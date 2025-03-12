@@ -1,10 +1,10 @@
 import React from "react";
-import "./Header.css";  // 스타일 추가
+import "./Header.css";  // Style added
 
 function Header() {
   return (
     <div className="header">
-      <img src="/logo.png" alt="Logo" className="logo" />
+      <img src="/logo.png" alt="Logo" className="logo" /> 
     </div>
   );
 }
